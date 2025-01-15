@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Dolce Goose</title>
+    <link rel="icon" href="photo_2025-01-04_15-52-31.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cafe.css">
+
+    
+</head>
+<body>
+    <header>
+        Добро пожаловать в наше Кафе!
+    </header>
+
+    <aside class="navbar">
+        <img src="photo_2025-01-04_15-52-31.jpg" alt="Лого">
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="review.html">Отзывы</a></li>
+            <li><a href="menu.html">Меню</a></li>
+            <li><a href="o nas.html">О нас</a></li>
+        </ul>
+    </aside>
+
+    <div class="content">
+        <section id="home">
+            <h4>Главная</h4>
+            <h4>Добро пожаловать в наше уютное кафе, еда со всего мира</h4>
+        </section>
+
+        <section id="menu">
+            <h4>Блюда</h4>
+            <div class="card-container">
+                <div class="card" onclick="showDetails('Лобстер на гриле', 'Свежий лобстер, приготовленный на гриле, с легкой приправой и ароматными травами. Время приготовления: 20 минут. Подается с гарниром из запеченных овощей и сливочным соусом. Отличный выбор для любителей морепродуктов.', 1899)">
+                    <img src="image/lobster.jpg" alt="Лобстер">
+                    <p>Лобстер на гриле<br>1899₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Лосось на гриле', 'Сочный лосось, приготовленный на гриле, с медово-горчичным соусом и свежими зеленью. Время приготовления: 15 минут. Идеален для здорового питания и поклонников рыбы.', 1599)">
+                    <img src="image/losos.jpg" alt="Лосось">
+                    <p>Лосось на гриле<br>1599₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Чизкейк', 'Нежный чизкейк с ванильным кремом и фруктами. Тонкая текстура, идеально сбалансированный вкус. Время приготовления: 10 минут. Сладкое наслаждение для ценителей десертов.', 499)">
+                    <img src="image/chesscake.jpg" alt="Чизкейк">
+                    <p>Чизкейк<br>499₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Салат Цезарь', 'Классический салат с курицей, листьями свежего салата, помидорами и пармезаном. Время приготовления: 10 минут. Идеальный вариант для легкого обеда или ужина.', 699)">
+                    <img src="image/salatcesar.jpg" alt="Салат Цезарь">
+                    <p>Салат Цезарь<br>699₽</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="drinks">
+            <h4>Напитки</h4>
+            <div class="card-container">
+                <div class="card" onclick="showDetails('Кофе капучино', 'Классический капучино с нежной пенкой из молока и эспрессо. Идеально для утреннего пробуждения или небольшого перерыва. Время приготовления: 5 минут.', 299)">
+                    <img src="image/cappuchino.jpg" alt="Капучино">
+                    <p>Кофе капучино<br>299₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Чай зелёный', 'Свежезаваренный зелёный чай с ароматом жасмина и трав. Легкий и утоляющий жажду. Время приготовления: 3 минуты.', 199)">
+                    <img src="image/zelenychai.jpg" alt="Чай">
+                    <p>Чай зелёный<br>199₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Американо', 'Классический чёрный кофе с мягким вкусом и богатым ароматом. Время приготовления: 5 минут. Отличный выбор для любителей крепкого кофе.', 199)">
+                    <img src="image/image1_0.jpg" alt="Американо">
+                    <p>Американо<br>199₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Морс ягодный', 'Свежий ягодный морс с добавлением натурального меда. Натуральный вкус и витаминная поддержка. Время приготовления: 3 минуты.', 149)">
+                    <img src="image/sok.jpg" alt="Морс">
+                    <p>Морс ягодный<br>149₽</p>
+                </div>
+            </div>
+        </section>
+        
+        
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Вход</h2>
+                <span class="modal-close" onclick="closeModal('loginModal')">&times;</span>
+            </div>
+            <input type="text" id="loginUsername" placeholder="Логин">
+            <input type="password" id="loginPassword" placeholder="Пароль">
+            <button onclick="login()">Войти</button>
+        </div>
+    </div>
+
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="detailsTitle">Детали</h2>
+                <span class="modal-close" onclick="closeModal('detailsModal')">&times;</span>
+            </div>
+            <p id="detailsDescription">Описание блюда</p>
+            <p id="detailsPrice">Цена: 0₽</p>
+            <button class="order-button" onclick="orderItem()">Заказать</button>
+        </div>
+    </div>
+
+    <script>
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showDetails(title, description, price) {
+            document.getElementById('detailsTitle').innerText = title;
+            document.getElementById('detailsDescription').innerText = description;
+            document.getElementById('detailsPrice').innerText = `Цена: ${price}₽`;
+            document.getElementById('detailsModal').style.display = 'flex';
+        }
+
+        function login() {
+            closeModal('loginModal');
+            alert('Добро пожаловать!');
+        }
+
+        function orderItem() {
+            alert('Блюдо добавлено в заказ!');
+            closeModal('detailsModal');
+        }
+
+        window.onload = () => {
+            document.getElementById('loginModal').style.display = 'flex';
+        };
+    </script>
+</body>
+</html>
